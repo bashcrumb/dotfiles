@@ -1,0 +1,70 @@
+general {
+    colors = true
+    interval = 1
+    color_good = "#50FA7B"
+    color_degraded = "#F1FA8C"
+    color_bad = "#FF5555"
+}
+
+order += "wireless _first_"
+order += "disk /"
+order += "disk /home"
+order += "load"
+order += "memory"
+order += "battery all"
+order += "volume master"
+order += "tztime local"
+
+wireless _first_ {
+    format_up = "   %essid"
+    format_down = "   down"
+}
+
+disk "/" {
+    format = "/ %avail"
+    prefix_type = "custom"
+    low_threshold = 10
+    threshold_type = "percentage_avail"
+}
+
+disk "/home" {
+    format = "~ %avail"
+    prefix_type = "custom"
+    low_threshold = 10
+    threshold_type = "percentage_avail"
+}
+
+load {
+    format = "  %1min"
+}
+
+memory {
+    format = "🧠 %used"
+    threshold_degraded = "1G"
+    format_degraded = "MEM LOW: %available"
+}
+
+battery all {
+    format = "%status %percentage %remaining"
+    format_down = ""
+    status_chr = "󰂄"
+    status_bat = "󰁾"
+    status_unk = "?"
+    status_full = "󰂄"
+    low_threshold = 15
+    threshold_type = "percentage"
+    integer_battery_capacity = true
+    last_full_capacity = true
+}
+
+volume master {
+    format = "   %volume"
+    format_muted = "   MUTED"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+tztime local {
+    format = "%I:%M %p"
+}
