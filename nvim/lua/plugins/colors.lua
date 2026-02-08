@@ -7,7 +7,12 @@ return {
 		style = 'warmer'
 	    }
 	    require('onedark').load()
-	end
+	end,
+	transparent = true,
+	styles = {
+	    sidebars = "transparent",
+	    floats = "transparent",
+	},
     },
     {
 	"nvim-lualine/lualine.nvim",
