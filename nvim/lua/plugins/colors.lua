@@ -1,17 +1,20 @@
 return {
     {	
-	"folke/tokyonight.nvim",
-	lazy = false,
+	"EdenEast/nightfox.nvim",
 	priority = 1000,
-	opts = {},
 	config = function()
-	    vim.cmd("colorscheme tokyonight-storm")
+	    require("nightfox").setup({
+		options = {
+		    transparent = true,
+		    terminal_colors = true,
+		},
+		styles = {
+		    sidebars = "transparent",
+		    floats = "transparent",
+		},
+	    })
+	    vim.cmd("colorscheme nightfox")
 	end,
-	transparent = true,
-	styles = {
-	    sidebars = "transparent",
-	    floats = "transparent",
-	},
     },
     {
 	"nvim-lualine/lualine.nvim",
